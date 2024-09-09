@@ -23,7 +23,8 @@ interface BaseButtonProps {
     type?:ButtonType; //btnType，如果想跟button本身type区分，则要emit
     href?:string;
     autoFocus?:React.ReactNode;
-    children:React.ReactNode;
+    children?:React.ReactNode;
+    label?:string,
     onClick: ()=>void
 }
 
