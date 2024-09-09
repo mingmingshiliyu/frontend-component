@@ -9,7 +9,7 @@ export interface MenuItemProps {
 }
 
 const MenuItem:React.FC<MenuItemProps> = ({
-    inedx,
+    index,
     disabled,
     className,
     style,
