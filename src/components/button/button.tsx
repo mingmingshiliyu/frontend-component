@@ -46,7 +46,7 @@ const Button:React.FC<BaseButtonProps> = ({
     type,
     href,
     children,
-}) => {
+}):React.ReactElement => {
     const classes = classNames('btn',{
         [`btn-${type}`]:type,
         [`btn-${size}`]:size,
