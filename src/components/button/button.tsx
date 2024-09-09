@@ -24,6 +24,7 @@ interface BaseButtonProps {
     href?:string;
     autoFocus?:React.ReactNode;
     children:React.ReactNode;
+    onClick: ()=>void
 }
 
 // const initCssProperties = () => {
