@@ -1,0 +1,38 @@
+import React, { FunctionComponentElement, useContext, useState } from "react";
+import { StringLiteral } from "typescript";
+import { MenuContext } from "./menu";
+import classNames from "classnames";
+import { MenuItemProps } from "./menuItem";
+
+export interface SubMenuProps {
+    index?: number;
+    title: string;
+    className?:string;
+    children?:React.ReactNode
+}
+
+const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className}){
+    const [open,setOpen] =useState(false)
+    const context = useContext(MenuContext)
+    const classes=classNames('menu-item submenu-item',className,{
+        'is-active':context.index===index
+    })
+    const handleClick = (e: MouseEvent)=>{
+        e.preventDefault()
+        setOpen(!open)
+    }
+    const renderChildren = () =>{
+        const subMenuClasses=classnames
+        React.Children.map(children,(child,i)=>{
+            const childElement = child as FunctionComponentElement<MenuItemProps>
+            if(childElement.type.displayName==='MenuItem'){
+                return childElement
+                // return React.cloneElement(childElement,{
+                //     index:i
+                // })
+            }else{
+                console.log('no menuitem child')
+            }
+        })
+    }
+}

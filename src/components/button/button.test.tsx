@@ -4,6 +4,8 @@
 //.test.js结尾文件
 //.spec.js结尾文件
 
+//npm install --save-dev jest
+
 import '@testing-library/jest-dom/extend-expect'
 
 import { fireEvent, render } from "@testing-library/react"

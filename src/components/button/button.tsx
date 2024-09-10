@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React from 'react'
 
 
+
 export enum ButtonSize {
     Large="lg",
     Small="sm",
@@ -25,7 +26,7 @@ interface BaseButtonProps {
     autoFocus?:React.ReactNode;
     children?:React.ReactNode;
     label?:string,
-    onClick: ()=>void
+    onClick?: ()=>void
 }
 
 // const initCssProperties = () => {
