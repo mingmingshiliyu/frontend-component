@@ -23,6 +23,9 @@
             border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
         }
     }
+    .viking-submenu.menu-opened {
+        //display: block;
+      }
 }
 
 .menu-vertical{

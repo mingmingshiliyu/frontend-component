@@ -1,4 +1,4 @@
-import React, { FunctionComponentElement, useContext, useState } from "react";
+import React, { FunctionComponentElement, MouseEvent, MouseEventHandler, useContext, useState } from "react";
 import { StringLiteral } from "typescript";
 import { MenuContext } from "./menu";
 import classNames from "classnames";
@@ -11,7 +11,7 @@ export interface SubMenuProps {
     children?:React.ReactNode
 }
 
-const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className}){
+const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className})=>{
     const [open,setOpen] =useState(false)
     const context = useContext(MenuContext)
     const classes=classNames('menu-item submenu-item',className,{
@@ -22,7 +22,9 @@ const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className}){
         setOpen(!open)
     }
     const renderChildren = () =>{
-        const subMenuClasses=classnames
+        const subMenuClasses=classNames('viking-submenu',{
+            'menu-opened': open
+        })
         React.Children.map(children,(child,i)=>{
             const childElement = child as FunctionComponentElement<MenuItemProps>
             if(childElement.type.displayName==='MenuItem'){
@@ -34,5 +36,20 @@ const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className}){
                 console.log('no menuitem child')
             }
         })
+        return (
+            <ul className={subMenuClasses}>
+                {children}
+            </ul>
+        )
     }
+    return (
+        <li key={index} className={classes}>
+            <div className="submenu-title" onClick={handleClick}>
+                {title}
+            </div>
+            {renderChildren()}
+        </li>
+    )
 }
+
+export default SubMenu;

@@ -1,526 +1,294 @@
-//https://github.com/kristerkari/normalize.scss/blob/master/_normalize.scss
-// =============================================================================
-// Normalize.scss based on Nicolas Gallagher and Jonathan Neal's
-// normalize.css v2.1.3 | MIT License | git.io/normalize
-// =============================================================================
-
-// =============================================================================
-// Normalize.scss settings
-// =============================================================================
-
-
-// Set to true if you want to add support for IE6 and IE7
-// Notice: setting to true might render some elements
-// slightly differently than when set to false
-$legacy_support_for_ie: false !default; // Used also in Compass
-
-
-// Set the default font family here so you don't have to override it later
-$normalized_font_family: sans-serif !default;
-
-$normalize_headings: true !default;
-
-$h1_font_size: 2em !default;
-$h2_font_size: 1.5em !default;
-$h3_font_size: 1.17em !default;
-$h4_font_size: 1em !default;
-$h5_font_size: 0.83em !default;
-$h6_font_size: 0.75em !default;
-
-$h1_margin: 0.67em 0 !default;
-$h2_margin: 0.83em 0 !default;
-$h3_margin: 1em 0 !default;
-$h4_margin: 1.33em 0 !default;
-$h5_margin: 1.67em 0 !default;
-$h6_margin: 2.33em 0 !default;
-
-$background: #fff !default;
-$color: #000 !default;
-
-// =============================================================================
-// HTML5 display definitions
-// =============================================================================
-
-// Corrects block display not defined in IE6/7/8/9 & FF3
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-nav,
-section,
-summary {
-    display: block;
-}
-
-// Corrects inline-block display not defined in IE6/7/8/9 & FF3
-
-audio,
-canvas,
-video {
-    display: inline-block;
-    @if $legacy_support_for_ie {
-        *display: inline;
-        *zoom: 1;
-    }
-}
-
-// 1. Prevents modern browsers from displaying 'audio' without controls
-// 2. Remove excess height in iOS5 devices
-
-audio:not([controls]) {
-    display: none; // 1
-    height: 0; // 2
-}
-
-//
-// Address `[hidden]` styling not present in IE 8/9.
-// Hide the `template` element in IE, Safari, and Firefox < 22.
-//
-
-[hidden], template {
-    display: none;
-}
-
-// =============================================================================
-// Base
-// =============================================================================
-
-// 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
-//    http://clagnut.com/blog/348/#c790
-// 2. Prevents iOS text size adjust after orientation change, without disabling user zoom
-//    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
-
-html {
-    @if $legacy_support_for_ie {
-        font-size: 100%; // 1
-    }
-		background: $background;
-		color: $color;
-    -webkit-text-size-adjust: 100%; // 2
-    -ms-text-size-adjust: 100%; // 2
-}
-
-// Addresses font-family inconsistency between 'textarea' and other form elements.
-
-html,
-button,
-input,
-select,
-textarea {
-    font-family: $normalized_font_family;
-}
-
-// Addresses margins handled incorrectly in IE6/7
-
-body {
-    margin: 0;
-}
-
-// =============================================================================
-// Links
-// =============================================================================
-
-// 1. Remove the gray background color from active links in IE 10.
-// 2. Addresses outline displayed oddly in Chrome
-// 3. Improves readability when focused and also mouse hovered in all browsers
-//    people.opera.com/patrickl/experiments/keyboard/test
-
-a {
-    // 1
-    
-    background: transparent;
-
-    // 2
-
-    &:focus {
-        outline: thin dotted;
-    }
-
-    // 3
-
-    &:hover,
-    &:active {
-        outline: 0;
-    }
-}
-
-// =============================================================================
-// Typography
-// =============================================================================
-
-// Addresses font sizes and margins set differently in IE6/7
-// Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
-
-@if $normalize_headings == true {
-    h1 {
-        font-size: $h1_font_size;
-        margin: $h1_margin;
-    }
-
-    h2 {
-        font-size: $h2_font_size;
-        margin: $h2_margin;
-    }
-
-    h3 {
-        font-size: $h3_font_size;
-        margin: $h3_margin;
-    }
-
-    h4 {
-        font-size: $h4_font_size;
-        margin: $h4_margin;
-    }
-
-    h5 {
-        font-size: $h5_font_size;
-        margin: $h5_margin;
-    }
-
-    h6 {
-        font-size: $h6_font_size;
-        margin: $h6_margin;
-    }
-}
-
-// Addresses styling not present in IE 8/9, S5, Chrome
-
-abbr[title] {
-    border-bottom: 1px dotted;
-}
-
-// Addresses style set to 'bolder' in FF3+, S4/5, Chrome
-
-b,
-strong {
-    font-weight: bold;
-}
-
-@if $legacy_support_for_ie {
-    blockquote {
-        margin: 1em 40px;
-    }
-}
-
-// Addresses styling not present in S5, Chrome
-
-dfn {
-    font-style: italic;
-}
-
-// Addresses styling not present in IE6/7/8/9
-
-mark {
-    background: #ff0;
-    color: #000;
-}
-
-// Addresses margins set differently in IE6/7
-@if $legacy_support_for_ie {
-    p,
-    pre {
-        margin: 1em 0;
-    }
-}
-
-// Corrects font family set oddly in IE6, S4/5, Chrome
-// en.wikipedia.org/wiki/User:Davidgothberg/Test59
-
-code,
-kbd,
-pre,
-samp {
-    font-family: monospace, serif;
-    @if $legacy_support_for_ie {
-        _font-family: 'courier new', monospace;
-    }
-    font-size: 1em;
-}
-
-// Improves readability of pre-formatted text in all browsers
-
-pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-
-// Set consistent quote types.
-
-q {
-    quotes: "\201C" "\201D" "\2018" "\2019";
-}
-
-// 1. Addresses CSS quotes not supported in IE6/7
-// 2. Addresses quote property not supported in S4
-
-// 1
-@if $legacy_support_for_ie {
-    q {
-        quotes: none;
-    }
-}
-
-// 2
-q {
-    &:before, 
-    &:after {
-        content: '';
-        content: none;	
-    }
-}
-
-// Address inconsistent and variable font size in all browsers.
-
-small {
-    font-size: 80%;
-}
-
-// Prevents sub and sup affecting line-height in all browsers
-// gist.github.com/413930
-
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sup {
-    top: -0.5em;
-}
-
-sub {
-    bottom: -0.25em;
-}
-
-// =============================================================================
-// Lists
-// =============================================================================
-
-// Addresses margins set differently in IE6/7
-@if $legacy_support_for_ie {
-    dl,
-    menu,
-    ol,
-    ul {
-        margin: 1em 0;
-    }
-}
-
-@if $legacy_support_for_ie {
-    dd {
-        margin: 0 0 0 40px;
-    }
-}
-
-// Addresses paddings set differently in IE6/7
-@if $legacy_support_for_ie {
-    menu,
-    ol,
-    ul {
-        padding: 0 0 0 40px;
-    }
-}
-
-// Corrects list images handled incorrectly in IE7
-
-nav {
-    ul,
-    ol {
-        @if $legacy_support_for_ie {
-            list-style-image: none;
-        }
-    }
-}
-
-// =============================================================================
-// Embedded content
-// =============================================================================
-
-// 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
-// 2. Improves image quality when scaled in IE7
-//    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
-
-img {
-    border: 0; // 1
-    @if $legacy_support_for_ie {
-        -ms-interpolation-mode: bicubic; // 2
-    }
-}
-
-// Corrects overflow displayed oddly in IE9
-
-svg:not(:root) {
-    overflow: hidden;
-}
-
-// =============================================================================
-// Figures
-// =============================================================================
-
-// Addresses margin not present in IE6/7/8/9, S5, O11
-
-figure {
-    margin: 0;
-}
-
-// =============================================================================
-// Forms
-// =============================================================================
-
-// Corrects margin displayed oddly in IE6/7
-@if $legacy_support_for_ie {
-    form {
-        margin: 0;
-    }
-}
-
-// Define consistent border, margin, and padding
-
-fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
-}
-
-// 1. Corrects color not being inherited in IE6/7/8/9
-// 2. Remove padding so people aren't caught out if they zero out fieldsets.
-// 3. Corrects text not wrapping in FF3
-// 4. Corrects alignment displayed oddly in IE6/7
-
-legend {
-    border: 0; // 1
-    padding: 0; // 2
-    white-space: normal; // 3
-    @if $legacy_support_for_ie {
-        *margin-left: -7px; // 4
-    }
-}
-
-// 1. Correct font family not being inherited in all browsers.
-// 2. Corrects font size not being inherited in all browsers
-// 3. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
-// 4. Improves appearance and consistency in all browsers
-
-button,
-input,
-select,
-textarea {
-    font-family: inherit; // 1
-    font-size: 100%; // 2
-    margin: 0; // 3
-    vertical-align: baseline; // 4
-    @if $legacy_support_for_ie {
-        *vertical-align: middle; // 4
-    }
-}
-
-// Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
-
-button, input {
-    line-height: normal;
-}
-
-// Address inconsistent `text-transform` inheritance for `button` and `select`.
-// All other form control elements do not inherit `text-transform` values.
-// Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
-// Correct `select` style inheritance in Firefox 4+ and Opera.
-
-button,
-select {
-    text-transform: none;
-}
-
-// 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
-//    and `video` controls
-// 2. Corrects inability to style clickable 'input' types in iOS
-// 3. Improves usability and consistency of cursor style between image-type
-//    'input' and others
-// 4. Removes inner spacing in IE7 without affecting normal text inputs
-//    Known issue: inner spacing remains in IE6
-
-button,
-html input[type="button"], // 1
-input[type="reset"],
-input[type="submit"] {
-    -webkit-appearance: button; // 2
-    cursor: pointer; // 3
-    @if $legacy_support_for_ie {
-        *overflow: visible;  // 4
-    }
-}
-
-// Re-set default cursor for disabled elements
-
-button[disabled],
-input[disabled] {
-    cursor: default;
-}
-
-// Removes inner padding and border in FF3+
-// www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
-
-button, input {
-    &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
-    }
-}
-
-// 1. Removes default vertical scrollbar in IE6/7/8/9
-// 2. Improves readability and alignment in all browsers
-
-textarea {
-    overflow: auto; // 1
-    vertical-align: top; // 2
-}
-
-// =============================================================================
-// Tables
-// =============================================================================
-
-// Remove most spacing between table cells
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-input {
-    // 1. Addresses appearance set to searchfield in S5, Chrome
-    // 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
-    &[type="search"] {
-        -webkit-appearance: textfield; // 1
-        -moz-box-sizing: content-box;
-        -webkit-box-sizing: content-box; // 2
-        box-sizing: content-box;
-        
-    	// Remove inner padding and search cancel button in Safari 5 and Chrome
-        // on OS X.
-        &::-webkit-search-cancel-button,
-        &::-webkit-search-decoration {
-            -webkit-appearance: none;
-        }
-    }
-    
-    // 1. Address box sizing set to `content-box` in IE 8/9/10.
-    // 2. Remove excess padding in IE 8/9/10.
-    // 3. Removes excess padding in IE7
-    //    Known issue: excess padding remains in IE6
-    &[type="checkbox"],
-    &[type="radio"] {
-    	box-sizing: border-box; // 1
-    	padding: 0; // 2
-    	@if $legacy_support_for_ie {
-        	*height: 13px; // 3
-        	*width: 13px; // 3
-    	}
-    }
-}
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #0d6efd !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #d63384 !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #fadb14 !default;
+$green:   #52c41a !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-800 !default;
+
+$theme-colors: 
+(
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif !default;
+
+// 字体大小
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg:                $font-size-base * 1.25 !default;
+$font-size-sm:                $font-size-base * .875 !default;
+$font-size-root:              null !default;
+
+// 字重
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+$font-weight-base:            $font-weight-normal !default;
+
+// 行高
+$line-height-base:            1.5 !default;
+$line-height-lg:              2 !default;
+$line-height-sm:              1.25 !default;
+
+// 标题大小
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+// 链接
+$link-color:                              $primary !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        darken($link-color, 15%) !default;
+$link-hover-decoration:                   underline !default;
+
+// body
+$body-bg:                   $white !default;
+$body-color:                $gray-900 !default;
+$body-text-align:           null !default;
+
+// Spacing
+$spacer: 1rem !default;
+
+$headings-margin-bottom:      $spacer / 2 !default;
+$headings-font-family:        null !default;
+$headings-font-style:         null !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              null !default;
+
+// Paragraphs
+
+$paragraph-margin-bottom:   1rem !default;
+
+// 字体其他部分 heading list hr 等等
+$headings-margin-bottom:      $spacer / 2 !default;
+$headings-font-family:        null !default;
+$headings-font-style:         null !default;
+$headings-font-weight:        500 !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              null !default;
+
+$display1-size:               6rem !default;
+$display2-size:               5.5rem !default;
+$display3-size:               4.5rem !default;
+$display4-size:               3.5rem !default;
+
+$display1-weight:             300 !default;
+$display2-weight:             300 !default;
+$display3-weight:             300 !default;
+$display4-weight:             300 !default;
+$display-line-height:         $headings-line-height !default;
+
+$lead-font-size:              $font-size-base * 1.25 !default;
+$lead-font-weight:            300 !default;
+
+$small-font-size:             .875em !default;
+
+$sub-sup-font-size:           .75em !default;
+
+$text-muted:                  $gray-600 !default;
+
+$initialism-font-size:        $small-font-size !default;
+
+$blockquote-small-color:      $gray-600 !default;
+$blockquote-small-font-size:  $small-font-size !default;
+$blockquote-font-size:        $font-size-base * 1.25 !default;
+
+$hr-color:                    inherit !default;
+$hr-height:                   1px !default;
+$hr-opacity:                  .25 !default;
+
+$legend-margin-bottom:        .5rem !default;
+$legend-font-size:            1.5rem !default;
+$legend-font-weight:          null !default;
+
+$mark-padding:                .2em !default;
+
+$dt-font-weight:              $font-weight-bold !default;
+
+$nested-kbd-font-weight:      $font-weight-bold !default;
+
+$list-inline-padding:         .5rem !default;
+
+$mark-bg:                     #fcf8e3 !default;
+
+$hr-margin-y:                 $spacer !default;
+
+// Code
+
+$code-font-size:                    $small-font-size !default;
+$code-color:                        $pink !default;
+$pre-color:                         null !default;
+
+// options 可配置选项
+$enable-pointer-cursor-for-buttons:           true !default;
+
+// 边框 和 border radius
+
+$border-width:                1px !default;
+$border-color:                $gray-300 !default;
+
+$border-radius:               .25rem !default;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
+
+// 不同类型的 box shadow
+$box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
+$box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
+
+// 按钮
+// 按钮基本属性
+$btn-font-weight:             400;
+$btn-padding-y:               .375rem !default;
+$btn-padding-x:               .75rem !default;
+$btn-font-family:             $font-family-base !default;
+$btn-font-size:               $font-size-base !default;
+$btn-line-height:             $line-height-base !default;
+
+//不同大小按钮的 padding 和 font size
+$btn-padding-y-sm:            .25rem !default;
+$btn-padding-x-sm:            .5rem !default;
+$btn-font-size-sm:            $font-size-sm !default;
+
+$btn-padding-y-lg:            .5rem !default;
+$btn-padding-x-lg:            1rem !default;
+$btn-font-size-lg:            $font-size-lg !default;
+
+// 按钮边框
+$btn-border-width:            $border-width !default;
+
+// 按钮其他
+$btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$btn-disabled-opacity:        .65 !default;
+
+// 链接按钮
+$btn-link-color:              $link-color !default;
+$btn-link-hover-color:        $link-hover-color !default;
+$btn-link-disabled-color:     $gray-600 !default;
+
+
+// 按钮 radius
+$btn-border-radius:           $border-radius !default;
+$btn-border-radius-lg:        $border-radius-lg !default;
+$btn-border-radius-sm:        $border-radius-sm !default;
+
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// menu
+$menu-border-width:            $border-width !default;
+$menu-border-color:            $border-color !default;
+$menu-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+$menu-transition:              color .15s ease-in-out, border-color .15s ease-in-out !default;
+
+// menu-item
+$menu-item-padding-y:          .5rem !default;
+$menu-item-padding-x:          1rem !default;
+$menu-item-active-color:       $primary !default;
+$menu-item-active-border-width: 2px !default;
+$menu-item-disabled-color:     $gray-600 !default;
+
+//sub-menu
+//submenu
+$submenu-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+
+//input
+$input-padding-y:                       $btn-padding-y !default;
+$input-padding-x:                       $btn-padding-x !default;
+$input-font-family:                     $btn-font-family !default;
+$input-font-size:                       $btn-font-size !default;
+$input-font-weight:                     $font-weight-base !default;
+$input-line-height:                     $btn-line-height !default;
+
+$input-padding-y-sm:                    $btn-padding-y-sm !default;
+$input-padding-x-sm:                    $btn-padding-x-sm !default;
+$input-font-size-sm:                    $btn-font-size-sm !default;
+
+$input-padding-y-lg:                    $btn-padding-y-lg !default;
+$input-padding-x-lg:                    $btn-padding-x-lg !default;
+$input-font-size-lg:                    $btn-font-size-lg !default;
+
+$input-bg:                              $white !default;
+$input-disabled-bg:                     $gray-200 !default;
+$input-disabled-border-color:           null !default;
+
+$input-color:                           $gray-700 !default;
+$input-border-color:                    $gray-400 !default;
+$input-border-width:                    $border-width !default;
+$input-box-shadow:                      $box-shadow-inset !default;
+
+$input-border-radius:                   $border-radius !default;
+$input-border-radius-lg:                $border-radius-lg !default;
+$input-border-radius-sm:                $border-radius-sm !default;
+
+$input-focus-bg:                        $input-bg !default;
+$input-focus-border-color:              lighten($primary, 25%) !default;
+$input-focus-width:                     .2rem !default;
+$input-focus-color:                     $input-color !default;
+$input-focus-shadow-color:              rgba($primary, .25) !default;
+$input-focus-box-shadow:                0 0 0 $input-focus-width $input-focus-shadow-color !default;
+
+$input-placeholder-color:               $gray-600 !default;
+$input-plaintext-color:                 $body-color !default;
+
+$input-height-border:                   $input-border-width * 2 !default;
+
+
+$input-transition:                      border-color .3s ease-in-out, box-shadow .3s ease-in-out !default;
+
+$input-group-addon-color:               $input-color !default;
+$input-group-addon-bg:                  $gray-200 !default;
+$input-group-addon-border-color:        $input-border-color !default;
+
+// Progress bars
+
+$progress-font-size:                $font-size-base * .75 !default;
+$progress-bg:                       $gray-200 !default;
+$progress-border-radius:            $border-radius !default;
+$progress-bar-color:                $white !default;
+$progress-bar-transition:           width .6s ease !default;
+
+$theme-colors:("primary":$primary,"secondary":$secondary,
+"success":$success,"info":$info,
+"warning":$warning,"danger":$danger,
+"light":$light,"dark":$dark
+)

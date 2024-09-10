@@ -32,7 +32,7 @@ type SelectCallback = (selectedIndex:number) => void;
 interface IMenuContext {
     index:number;
     onSelect?:SelectCallback;
-    
+    mode?:MenuMode;
 } 
 
 export const MenuContext = createContext<IMenuContext>({index:0})
@@ -53,6 +53,7 @@ const Menu:RFC<MenuProps> = ({className,mode='horizontal',style,children,default
     const passedContext: IMenuContext = {
         index: currentActive?currentActive:0,
         onSelect: handleClick,
+        mode: mode,
     }
 
     //直接忽略在menu中的除了menuitem之外的其他元素,加了也不生效,例如<Menu><MenuItem></MenuItem><li></li></Menu>,这里li不生效

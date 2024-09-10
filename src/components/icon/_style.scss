@@ -1,0 +1,6 @@
+//sass语法，去查查sass-lang.com/documentation
+@each $key,$val in $theme-colors {
+    .icon-#{$key}{
+        color: $val;
+    }
+}

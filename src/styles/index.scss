@@ -5,9 +5,12 @@
 @import "reboot";
 
 //button
-@import "../components/button/style"
+@import "../components/button/style";
+
 
 //如果不在这里先导入，写的button样式不生效
 //可以看index.css，里面@import导入css文件，在App.tsx中import index.css才生效，逐级导入的，所以这里也要导入
+@import "../components/menu/style";
 
-@import "../components/menu/style"
+
+@import "../components/icon/style"
