@@ -35,6 +35,7 @@ function App() {
       </Menu>
 
       <Icon icon="coffee" theme='danger' size="10x"></Icon>
+      <Icon icon="angle-down" theme='danger' size="10x"></Icon>
     </>
   )
 }

@@ -3,6 +3,7 @@ import { StringLiteral } from "typescript";
 import { MenuContext } from "./menu";
 import classNames from "classnames";
 import { MenuItemProps } from "./menuItem";
+import Icon from "../icon/icon";
 
 export interface SubMenuProps {
     index?: number;
@@ -46,6 +47,7 @@ const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className})=>{
         <li key={index} className={classes}>
             <div className="submenu-title" onClick={handleClick}>
                 {title}
+                <Icon icon="angle-down" theme='danger'/>
             </div>
             {renderChildren()}
         </li>
