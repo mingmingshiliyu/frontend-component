@@ -23,8 +23,30 @@
             border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
         }
     }
-    .viking-submenu.menu-opened {
-        //display: block;
+    .viking-submenu:not(.menu-opened) { 
+        //用display进行消失会导致动画不生效，所以需要在动画出现的时候display:none消失
+        //display:none是完全消失，页面hover不到，并且造成其他属性没有效果
+        //visibility:hidden也是消失，但是存在于页面上，也hover不到，并不会影响别的属性。一般配合opacity和position使用，即要从消失到可以慢慢显现，必须用visibility而不是display
+
+        //display:none -> display:block,opacity:0 -动画-> display:block,opacity:1
+        //display:block,opacity:1 -动画-> display:block,opacity:0 -> display:none
+        // display: none; 
+        
+        //使用库实现基本的transition和annimation
+        // npm install react-transition-group --save
+        // opacity: 0;
+        // visibility:hidden;
+
+        
+      }
+      .viking-submenu {
+        transition: transform .55s ease-in;
+        transition-duration: 1s;
+        opacity: 1;
+        //display: none;
+      }
+      .viking-submenu {
+        position: absolute; //不会影响其他组件布局
       }
 }
 
@@ -40,4 +62,40 @@
         }
     }
 
+}
+
+.submenu-item{
+    position: relative;
+    .submenu-title{
+        display: flex;
+        align-items: center;
+    }
+    .arrow-icon{
+        transition: transform .25s ease-in;
+        // margin-left: 3px;
+    }
+    // &:hover {
+    //     .arrow-icon{
+    //         transform: rotate(180deg);
+    //     }
+    // }
+    .submenu-title {
+        .arrow-down{
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.is-vertical{
+    .arrow-down{
+        //覆盖rotate 180deg,垂直的时候不旋转
+        transform: rotate(0deg) !important;
+    }
+}
+
+.is-vertical.is-active{
+    .arrow-down{
+        //覆盖rotate 180deg,垂直的时候不旋转
+        transform: rotate(180deg) !important;
+    }
 }

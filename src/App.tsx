@@ -18,16 +18,26 @@ function App() {
     <>
       <Button disabled size={ButtonSize.Large} type={ButtonType.Primary} children={'hello'}></Button>
       
-      <Menu defaultIndex={0} onSelect={(index)=>console.log(index)} >
+      <Menu defaultIndex={0} mode={'vertical'} onSelect={(index)=>console.log(index)} >
         {/* 直接通过children.map遍历和cloneElement根据位置设置index,不用显式声明了 */}
         {/* <MenuItem index={0}> */} 
-        <MenuItem >
-          cool link
-        </MenuItem>
+        <SubMenu title='hellonihao'>
+          <MenuItem >
+            cool link
+          </MenuItem>
+          <MenuItem >
+            cool link2
+          </MenuItem>
+        </SubMenu>
         {/* <MenuItem index={1}> */}
-        <MenuItem>
-          cool link 2
-        </MenuItem>
+        <SubMenu title='hello'>
+            <MenuItem>
+              sub1
+            </MenuItem>
+            <MenuItem>
+              sub2
+            </MenuItem>
+        </SubMenu>
         {/* <MenuItem index={2}> */}
         <MenuItem>
           cool link 3

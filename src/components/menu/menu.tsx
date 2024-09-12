@@ -15,7 +15,7 @@ import classNames from "classnames";
 //     disabled: boolean;
 //     className: string;
 // }
-type MenuMode = 'horizontal'|'vertical'
+export type MenuMode = 'horizontal'|'vertical'
 export interface MenuProps{
     defaultIndex?:number;
     className?:string;
@@ -61,7 +61,7 @@ const Menu:RFC<MenuProps> = ({className,mode='horizontal',style,children,default
         return React.Children.map(children,(child,index)=>{
             const childElement = child as React.FunctionComponentElement<MenuItemProps>
             const {displayName}=childElement.type
-            if(displayName === 'MenuItem'){
+            if(displayName === 'MenuItem'||displayName==='SubMenu'){
                 // return childElement
                 //用cloneElement方法来设置元素的index值,这样children也就是MenuItem就不需要显式声明index了,<MenuItem index={0}>这里index={0}去掉就行
                 //因为这里不显式设置index,而是通过map遍历时children所处位置作为index.给组件设置了index并且不用显式操作
