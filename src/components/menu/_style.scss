@@ -34,12 +34,14 @@
         
         //使用库实现基本的transition和annimation
         // npm install react-transition-group --save
+        //npm i --save-dev @types/react-transition-group
         // opacity: 0;
         // visibility:hidden;
 
         
       }
       .viking-submenu {
+        backdrop-filter: "blur(60px)";
         transition: transform .55s ease-in;
         transition-duration: 1s;
         opacity: 1;

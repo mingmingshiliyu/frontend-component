@@ -15,10 +15,10 @@ library.add(fas) //添加所有icon，而不是一个个导入
 function App() {
 
   return (
-    <>
+    <div className='back'>
       <Button disabled size={ButtonSize.Large} type={ButtonType.Primary} children={'hello'}></Button>
       
-      <Menu defaultIndex={0} mode={'vertical'} onSelect={(index)=>console.log(index)} >
+      <Menu defaultIndex={0}  onSelect={(index)=>console.log(index)} >
         {/* 直接通过children.map遍历和cloneElement根据位置设置index,不用显式声明了 */}
         {/* <MenuItem index={0}> */} 
         <SubMenu title='hellonihao'>
@@ -46,7 +46,7 @@ function App() {
 
       <Icon icon="coffee" theme='danger' size="10x"></Icon>
       <Icon icon="angle-down" theme='danger' size="10x"></Icon>
-    </>
+    </div>
   )
 }
 

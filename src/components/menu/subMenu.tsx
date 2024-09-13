@@ -21,6 +21,7 @@ const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className})=>{
         'is-active':context.index===index,
         'is-vertical': context.mode==='vertical',
         'is-opened':context.index===index,
+        
     })
     const arrow=classNames({
         'arrow-down':open,
@@ -46,8 +47,9 @@ const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className})=>{
             }
         })
         const styles:React.CSSProperties={
-            // backgroundColor: "green",
-            backdropFilter: "50px"
+            //  backgroundColor: "green",
+            backdropFilter: "blur(60px)",
+            WebkitBackdropFilter: "blur(60px)"
         }
         return (
             <CSSTransition unmountOnExit appear nodeRef={nodeRef} in={open} timeout={200} classNames="zoom-in-top">
