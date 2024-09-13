@@ -5,6 +5,7 @@ import { MenuContext } from "./menu";
 import classNames from "classnames";
 import { MenuItemProps } from "./menuItem";
 import Icon from "../icon/icon";
+import Transition from "./transition";
 
 export interface SubMenuProps {
     index?: number;
@@ -52,11 +53,14 @@ const SubMenu:React.FC<SubMenuProps> = ({index,title,children,className})=>{
             WebkitBackdropFilter: "blur(60px)"
         }
         return (
-            <CSSTransition unmountOnExit appear nodeRef={nodeRef} in={open} timeout={200} classNames="zoom-in-top">
+            // 要注意，元素本身如果有transition属性，则需要在外面加一层div，不然会覆盖，导致动画失效
+            <Transition   unmountOnExit appear nodeRef={nodeRef} in={open} timeout={200} animation="zoom-in-top"  >
+            {/* // <CSSTransition unmountOnExit appear nodeRef={nodeRef} in={open} timeout={200} classNames="zoom-in-top">  */}
                 <ul className={subMenuClasses} ref={nodeRef}  style={styles}>
                     {children}
                 </ul>
-            </CSSTransition>
+          </Transition>
+            // </CSSTransition>
         )
     }
     return (
