@@ -3,6 +3,7 @@ import './App.css'
 //因为命名导出的需要{}包裹,非命名也就是export default导出的不需要包裹
 import Button,{ButtonSize,ButtonType} from './components/button/button'
 import Icon from './components/icon/icon'
+import Input from './components/input/input'
 import Menu from './components/menu/menu'
 import MenuItem from './components/menu/menuItem'
 import SubMenu from './components/menu/subMenu'
@@ -46,6 +47,7 @@ function App() {
 
       <Icon icon="coffee" theme='danger' size="10x"></Icon>
       <Icon icon="angle-down" theme='danger' size="10x"></Icon>
+      <Input placeholder='hello' icon={"arrow-down"} size='lg'/>
     </div>
   )
 }
