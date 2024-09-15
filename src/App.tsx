@@ -8,12 +8,37 @@ import Menu from './components/menu/menu'
 import MenuItem from './components/menu/menuItem'
 import SubMenu from './components/menu/subMenu'
 
-import {library} from '@fortawesome/fontawesome-svg-core'
+import {layer, library} from '@fortawesome/fontawesome-svg-core'
 import {fas} from '@fortawesome/free-solid-svg-icons'
+import AutoComplete, { DataSourceType } from './components/input/AutoComplete'
+
 
 library.add(fas) //添加所有icon，而不是一个个导入
 
 function App() {
+
+  const renderOption = (item:DataSourceType) =>{
+    return (
+      <h2>{item.value}</h2>
+    )
+  }
+
+  const handleFetch = (query:string) => {
+    const laker = [{value:"ada"},{value:"asda"}]
+    return laker.filter(play=>play.value.includes(query))
+  }
+
+  const handlePromise = (query:string) => {
+    return  fetch(`https://www.juhe.cn/docs/api/id/18`,{ mode: 'no-cors'})
+    .then(res => res.json())
+    .then(({items})=>{
+      console.log(items)
+      return [{value:"dasdas"}]
+    })
+  }
+  
+
+  
 
   return (
     <div className='back'>
@@ -48,6 +73,7 @@ function App() {
       <Icon icon="coffee" theme='danger' size="10x"></Icon>
       <Icon icon="angle-down" theme='danger' size="10x"></Icon>
       <Input placeholder='hello' icon={"arrow-down"} size='lg'/>
+      <AutoComplete data={['a','b']} renderOption={renderOption} fetchSuggestion={handlePromise}/>
     </div>
   )
 }
